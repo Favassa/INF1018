@@ -1,5 +1,4 @@
 .data
-/* Alterado de .int para .byte */
 nums:  .byte  10, -21, -30, 45
 Sf:  .string "%d\n"    # string de formato para printf
 
@@ -23,7 +22,6 @@ L1:
   cmpl  $4, %ebx     /* if (ebx == 4) ? */
   je  L2             /* goto L2 */
 
-  /* Carrega 1 byte e estende o sinal para 32 bits em eax */
   movsbl (%r12), %eax
 
 /*************************************************************/
@@ -34,7 +32,7 @@ L1:
 /*************************************************************/
 
   addl  $1, %ebx     /* ebx += 1; */
-  addq  $1, %r12     /* r12 += 1; (Agora o ponteiro avança apenas 1 byte) */
+  addq  $1, %r12     /* r12 += 1;  */
   jmp  L1            /* goto L1; */
 
 L2:  

@@ -15,23 +15,23 @@ main:
   movq    %r12, -16(%rbp)
 /********************************************************/
 
-  movl  $0, %ebx     /* ebx = 0; (contador i) */
-  movq  $nums, %r12  /* r12 = &nums (ponteiro p) */
-  movl  $0, %ecx     /* ecx = 0; (acumulador sum) */
+  movl  $0, %ebx     /* ebx = 0;  */
+  movq  $nums, %r12  /* r12 = &nums  */
+  movl  $0, %ecx     /* ecx = 0;  */
 
 L1:
   cmpl  $4, %ebx     /* if (ebx == 4) ? */
   je  L2             /* goto L2 */
 
   movl  (%r12), %eax /* eax = *r12 */
-  addl  %eax, %ecx   /* sum += *p (adiciona o valor atual à soma) */
+  addl  %eax, %ecx   /* sum += *p  */
 
   addl  $1, %ebx     /* ebx += 1; */
   addq  $4, %r12     /* r12 += 4; */
   jmp  L1            /* goto L1; */
 
 L2:  
-  /* O loop acabou. Colocamos a soma final em %eax para ser impressa */
+ 
   movl  %ecx, %eax
 
 /*************************************************************/

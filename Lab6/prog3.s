@@ -24,9 +24,9 @@ L1:
 
   movl  (%r12), %eax /* eax = *r12 */
 
-  /* Testa se é ímpar (bit menos significativo == 1) */
+ 
   testl $1, %eax
-  jne   PulaPrint    /* Se não for zero (ou seja, é ímpar), pula o bloco de printf */
+  jne   PulaPrint    
 
 /*************************************************************/
 /* este trecho imprime o valor de %eax (estraga %eax)  */
