@@ -1,0 +1,11 @@
+Ao utilizar o comando "nm", o programa lista os símbolos presentes no arquivo objeto. 
+O significado das letras principais nesse contexto é:
+
+- U (Undefined): O símbolo é usado nesse módulo, mas não está definido nele. 
+O ligador precisará encontrar a definição desse símbolo em outro arquivo objeto. 
+
+- T (Text): O símbolo está na seção de código. Geralmente representa uma 
+função implementada nesse módulo.
+
+- D (Data): O símbolo está na seção de dados inicializados. Representa uma variável global
+ que possui um valor inicial definido.

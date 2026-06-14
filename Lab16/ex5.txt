@@ -1,0 +1,11 @@
+a) Ocorre uma falha de segmentação na execução. 
+A compilação funciona e a ligação também, pois 'b' é um símbolo global exportado por temp2.o. 
+No entanto, na execução, a main tenta pular para o endereço de 'b' e executar o conteúdo
+como se fossem instruções de máquina. Como 'b' contém o inteiro 10, 
+o processador tenta ler isso como instrução, gerando erro.
+
+b) O programa executa normalmente e finaliza sem erros.
+O valor 0xC3 é o código exato da instrução 'ret' na arquitetura x86. Quando a main 
+"chama" a variável b, o processador pula para o endereço dela, 
+lê o byte 0xC3, interpreta como 'ret' e retorna imediatamente e em 
+segurança para a instrução seguinte dentro da main.

@@ -1,0 +1,17 @@
+a) A compilação e a ligação ocorrem sem erros. Porém, ocorre um erro lógico na execução.
+A arquitetura x86 é little-endian. O int 'a' (1024) na memória é "00 04 00 00". 
+Quando foo() trata 'a' como char (1 byte) e subtrai 3, ele altera apenas o primeiro byte
+de 0x00 para 0xFD (-3). O int inteiro passa a ser "FD 04 00 00", 
+o que resulta na impressão do valor 1277 em vez do valor esperado 1021.
+
+b) Ocorre um erro na etapa de ligação. A compilação passa, mas o ligador (ld) aborta 
+informando "multiple definition of 'a'". Como a variável 'a' foi definida como global 
+tanto em temp1.c quanto em temp2.c, o ligador não sabe qual dos dois endereços 
+deve ser associado ao símbolo 'a'.
+
+c) A compilação, ligação e execução ocorrem sem erros. 
+O modificador "static" restringe o escopo da variável 'a' apenas ao
+módulo temp2.c. Para o ligador, essa variável se torna um símbolo local, 
+não entrando em conflito com a variável global 'a' exportada por temp1.c. 
+A função foo() irá modificar a variável local 'a' de temp2.c, 
+e a main() imprimirá a variável global 'a' intacta (1024).

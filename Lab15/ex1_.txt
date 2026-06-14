@@ -1,0 +1,9 @@
+Quando o protótipo da função "foo" é omitido, 
+o compilador C, em versões mais antigas, assume que a função retorna 
+um valor do tipo "int". Ao fazer a chamada, o programa que faz a chamada irá tentar ler o 
+resultado no registrador de inteiros (%eax), enquanto a função 
+colocou o resultado do tipo float no registrador de ponto flutuante (%xmm0).
+Além disso, o compilador pode promover floats para doubles antes de passar para a função,  
+desorganizando os registradores esperados. 
+O resultado impresso será um lixo de memória devido a 
+incompatibilidade de tipos e registradores.

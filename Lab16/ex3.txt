@@ -1,0 +1,6 @@
+O erro ocorre na etapa de compilação. Como temp1.c inclui "temp1.h", o compilador lê
+a declaração "extern int a;" e logo em seguida encontra a definição "char a = 1;". 
+O compilador percebe a inconsistência de tipos para a mesma variável e cancela o processo.
+Isso mostra que incluir os cabeçalhos nos próprios módulos que definem os
+símbolos é uma importante para garantir a consistência das declarações
+antes mesmo de chegar a etapa de ligação.

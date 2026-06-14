@@ -1,0 +1,17 @@
+Símbolos exportados por arq1.o:
+- buff (Símbolo de dados: B ou D)
+- g (Símbolo de texto: T)
+
+Símbolos importados por arq1.o (indefinidos, U):
+- i
+- f
+- malloc
+- strcat
+- strcpy
+- strlen
+
+Resultado da chamada a printf no arq2.c:
+O programa imprimirá "0". Isso acontece porque o "k" que é modificado dentro da função "g" 
+de arq1.c é uma variável estática (static int k = 0), restrita apenas ao escopo de arq1.c.
+A variável global "k" definida em arq2.c (int k = 0) é uma posição de memória diferente e 
+nunca é alterada durante a execução da função "g".
